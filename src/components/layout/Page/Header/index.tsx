@@ -20,6 +20,7 @@ import { NavItemType } from "./types";
 import DesktopNavItem from "./components/DesktopNavItem";
 import MobileNavItem from "./components/MobileNavItem";
 import { isServer } from "src/utils/helpers";
+import { Button } from "src/components";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,11 +36,13 @@ const Header = () => {
         ref.current.classList.remove("bg-transparent");
         ref.current.classList.add("py-4");
         ref.current.classList.remove("py-6");
-      } else {
+        ref.current.classList.add("shadow");
+      } else if (window.scrollY < 30) {
         ref.current.classList.add("bg-transparent");
         ref.current.classList.remove("bg-white");
         ref.current.classList.add("py-6");
         ref.current.classList.remove("py-4");
+        ref.current.classList.remove("shadow");
       }
     }
   };
@@ -82,13 +85,13 @@ const Header = () => {
         },
       ],
     },
-    { title: "Interkomy", href: "#" },
+    { title: "Interkomy", href: "/marketplace/intercoms" },
     { title: "Torby i bagaże", href: "#" },
     { title: "Akcesoria", href: "#" },
   ];
 
   return (
-    <header className='bg-transparent sticky top-0 z-50 py-6' ref={ref}>
+    <header className='bg-transparent sticky top-0 z-50 py-6 transition ease-in-out duration-200' ref={ref}>
       <nav className='mx-auto flex gap-12 max-w-7xl items-center justify-between px-6 lg:px-8' aria-label='Global'>
         <div className='flex'>
           <a href='/' className='flex items-center -m-1.5 p-1.5'>
@@ -118,9 +121,7 @@ const Header = () => {
             <ShoppingCartIcon className='h-6 w-6' />
             <span className='text-sm font-semibold leading-6'>0,00 zł</span>
           </Link>
-          <Link href='/sign-in'>
-            <button className='bg-indigo-600 px-3 py-2 rounded-md text-sm font-medium leading-6 text-white'>Zaloguj się</button>
-          </Link>
+          <Button href='/login'>Zaloguj się</Button>
         </div>
       </nav>
 
@@ -147,7 +148,7 @@ const Header = () => {
               </div>
               <div className='py-6'>
                 <Link
-                  href='/sign-in'
+                  href='/login'
                   className='-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                 >
                   Zaloguj się

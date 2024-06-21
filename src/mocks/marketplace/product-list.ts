@@ -12,7 +12,7 @@ export const productList = [
       value: 1299.99,
       currency: "PLN",
       discount: {
-        value: 0,
+        value: 5,
         isPercentage: true,
       },
     },
@@ -33,10 +33,7 @@ export const productList = [
     price: {
       value: 200.42,
       currency: "PLN",
-      discount: {
-        value: 0,
-        isPercentage: false,
-      },
+      discount: null,
     },
     manufacturer: {
       name: "Manufacturer 2",
@@ -56,8 +53,8 @@ export const productList = [
       value: 300,
       currency: "PLN",
       discount: {
-        value: 0,
-        isPercentage: true,
+        value: 45.83,
+        isPercentage: false,
       },
     },
     manufacturer: {
@@ -77,10 +74,7 @@ export const productList = [
     price: {
       value: 400,
       currency: "PLN",
-      discount: {
-        value: 0,
-        isPercentage: false,
-      },
+      discount: null,
     },
     manufacturer: {
       name: "Manufacturer 4",
@@ -99,7 +93,7 @@ export const productList = [
     price: {
       value: 500,
       currency: "PLN",
-      discount: 0,
+      discount: null,
     },
     manufacturer: {
       name: "Manufacturer 5",

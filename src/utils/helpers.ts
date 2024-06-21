@@ -23,3 +23,7 @@ export const getNotificationIdFromName = (errors: string[]) => {
 
   return String(sum.toFixed(0));
 };
+
+export const getFormatedAmount = (amount: number) => {
+  return amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+};

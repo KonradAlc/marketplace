@@ -8,6 +8,8 @@ import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 import "react-toastify/dist/ReactToastify.css";
+import "react-image-gallery/styles/scss/image-gallery.scss";
+import { StoreProvider } from "src/store/StoreProvider";
 
 export const metadata: Metadata = {
   title: "MotoRynek - Rynek dla motocyklistów",
@@ -24,18 +26,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='pl'>
-      <head>
-        <meta charSet='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <link rel='icon' href={favicon.src} />
-      </head>
-      <body className={inter.className}>
-        <RouterComponents />
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang='pl'>
+        <head>
+          <meta charSet='UTF-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+          <link rel='icon' href={favicon.src} />
+        </head>
+        <body className={inter.className}>
+          <RouterComponents />
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

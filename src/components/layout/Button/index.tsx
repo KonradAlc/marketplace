@@ -15,7 +15,7 @@ const Button = (props: ButtonProps) => {
   const { children, icon: Icon, iconPosition = "left", className, href } = props;
 
   const classes = classNames(
-    "bg-indigo-600 px-3 py-2 rounded-md text-sm text-white font-medium leading-6",
+    "bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-md text-sm text-white font-medium leading-6 transition ease-in-out",
     {
       "flex-row-reverse": iconPosition === "right",
       "w-full": props.fullWidth,
@@ -24,7 +24,7 @@ const Button = (props: ButtonProps) => {
   );
 
   const button = (
-    <button type='button' className={classes} {...props}>
+    <button type='button' {...props} className={classes}>
       {children}
       {Icon && <Icon className='h-6 w-6' />}
     </button>
